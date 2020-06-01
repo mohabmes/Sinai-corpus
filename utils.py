@@ -1,4 +1,3 @@
-import re
 import os
 import numpy as np
 
@@ -20,34 +19,6 @@ def readFile(filename, rmode='r'):
         return "Error :", e
     return content
 
-
-def removeNumber(text):
-    return re.sub(r'\d+', '', text)
-
-
-def removeUnnecessaryChar(text):
-    text = " ".join(text.split()) # Remove all whitespace in a string
-    text = re.sub(r'[،؛﴾﴿٪]+', '', text)
-    text = re.sub(r'[\r\t ]+', ' ', text)
-    return removeNumber(text)
-
-
-def removeNonArabicChar(text):
-    text = re.sub(
-        r'[^0-9\u0600-\u06ff\u0750-\u077f\ufb50-\ufbc1\ufbd3-\ufd3f\ufd50-\ufd8f\ufd50-\ufd8f\ufe70-\ufefc\uFDF0-\uFDFD.0-9]+',
-        ' ', text)
-    return text
-
-
-def sentTokenize(text):
-    text = re.sub(r'[.؟!,,]', '\n', text)
-    return text
-
-
-def clean(text):
-    text = removeUnnecessaryChar(text)
-    text = removeNonArabicChar(text)
-    return sentTokenize(text)
 
 
 def scan_directory(dirname):
