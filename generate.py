@@ -1,3 +1,11 @@
+"""
+Created on Mon JUN 1 12:41:30 2020
+@author: mohabmes
+
+script used to clean and process Arabic texts for sinai-corpus
+
+"""
+
 import re
 import Arabycia.pyaramorph as pam
 
@@ -71,7 +79,7 @@ def analyze_text(text_list, pam = pam.Analyzer()):
     return result
 
 
-def remove_dub(text_list):
+def remove_duplicates(text_list):
     text_set = set(text_list)
     print(len(text_list) - len(text_set), " Duplicates")
     text = list(text_set)
@@ -87,8 +95,8 @@ def cleanDir(path):
         print("{}\{} - {}".format(cnt, sz, file))
         text = readFile(file, "r")
         clean_text = clean(text)
+        clean_text = remove_duplicates(clean_text.split("\n"))
         analyzed_text = analyze_text(clean_text.split("\n"))
-        analyzed_text = remove_dub(analyzed_text.split("\n"))
         createFile(str(cnt)+".txt", analyzed_text, "w")
         cnt += 1
 
