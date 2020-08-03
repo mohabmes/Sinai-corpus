@@ -21,3 +21,5 @@ Web pages | 362
 - See [sample.txt](https://github.com/mohabmes/Sinai-corpus/blob/master/src/sample.txt) for more examples (corpus format).
 - Use [load.py](https://github.com/mohabmes/Sinai-corpus/blob/master/load.py) to load all corpus content.
 
+# License
+[MIT License](https://github.com/mohabmes/Sinai-corpus/blob/master/LICENSE) Copyright (c) 2020 mohabmes
